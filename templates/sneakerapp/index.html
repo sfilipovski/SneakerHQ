@@ -1,0 +1,37 @@
+{% extends 'sneakerapp/base.html' %}
+
+{% block content %}
+
+
+    <section id="featured" class="py-5 text-center bg-light">
+  <div class="container">
+    <h2 class="display-4">Featured Sneakers</h2>
+    <p class="lead">Check out our latest and greatest sneaker!</p>
+
+  </div>
+</section>
+
+
+<section id="gallery" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Sneaker Gallery</h2>
+    <div class="row">
+
+        {% for sneaker in sneakers %}
+            <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ MEDIA_URL }}{{ sneaker.image.url }}" alt="Sneaker 3" class="card-img-top img-fluid" style="height: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ sneaker.name }}</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, perspiciatis.</p>
+                <a class="btn btn-primary" href={% url 'details' sneaker.id %}>Check out</a>
+                <p class="h3 text-decoration-underline float-right" >${{ sneaker.price }}</p>
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+  </div>
+</section>
+{% endblock %}

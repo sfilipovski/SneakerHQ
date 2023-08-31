@@ -1,0 +1,53 @@
+{% extends 'sneakerapp/base.html' %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ MEDIA_URL }}{{ sneaker.image.url }}" alt="Sneaker Detail" class="img-fluid">
+      </div>
+    <div class="col-md-6">
+    <form method="post">
+    {% csrf_token %}
+      <div >
+        <p class="h2">{{ sneaker.name }}</p>
+        <input type="hidden" name="name" value={{ sneaker.name }}>
+        <p class="lead">Model: {{ sneaker.model }}</p>
+        <p>Price: ${{ sneaker.price }}</p>
+        <input type="hidden" name="price" value={{ sneaker.price }}>
+
+        <!-- Color Selection -->
+        <div class="form-group">
+          <label for="colorSelect">Available Colors:</label>
+          <select class="form-control" id="colorSelect" name="color">
+            <option>{{ sneaker.color }}</option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="sizeSelect">Select Size:</label>
+          <select class="form-control" id="sizeSelect" name="size">
+              {% for ssize in sizes %}
+                <option>{{ ssize }}</option>
+              {% endfor %}
+
+          </select>
+        </div>
+
+        <p class="text-success">In Stock: {{ in_stock }} pairs</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis urna ut enim congue, at pulvinar nunc hendrerit. Sed congue odio eget vestibulum.</p>
+
+      {% if user.is_authenticated %}
+        <button class="btn btn-primary">Buy Now</button>
+      {% endif %}
+      </div>
+    </form>
+    </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
