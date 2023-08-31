@@ -13,7 +13,7 @@ Welcome to the SneakerHQ Web Shop project! This guide will walk you through the 
 2. Navigate to the directory where you want to store the project.
 3. Run the following command to clone the repository:
 
-### **```git clone https://github.com/yourusername/sneaker-web-shop.git```**
+### **```git clone https://github.com/sfilipovksi/SneakerHQ.git```**
 
 ## Step 2: Create admin
 
