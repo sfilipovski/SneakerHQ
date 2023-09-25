@@ -30,8 +30,5 @@ Welcome to the SneakerHQ Web Shop project! This guide will walk you through the 
 2. Run the command __```python manage.py runserver```__
 3. Open your browser and go to ```http://127.0.0.1:8000/```
 
-## Congratulations!
-
-You have successfully set up and started the SneakerHQ project.
 
 
